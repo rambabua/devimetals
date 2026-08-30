@@ -12,8 +12,9 @@ const allProducts = [
   { id: "8", name: "Brass Hanging Diya", price: 950.00, image: "https://via.placeholder.com/300?text=Hanging+Diya", category: "Puja Items" },
 ];
 
-export default function ShopPage({ searchParams }: { searchParams: { category?: string } }) {
-  const currentCategory = searchParams.category;
+export default async function ShopPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
+  const resolvedParams = await searchParams;
+  const currentCategory = resolvedParams.category;
   
   const filteredProducts = currentCategory 
     ? allProducts.filter(p => p.category.toLowerCase().replace(' ', '-') === currentCategory)
