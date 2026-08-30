@@ -1,4 +1,4 @@
-export const runtime = 'edge';
+
 
 import { getRequestContext } from '@cloudflare/next-on-pages';
 
