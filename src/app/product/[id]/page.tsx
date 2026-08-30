@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import AddToCartButton from '@/components/AddToCartButton';
 
 // Mock DB
 const allProducts = [
@@ -59,16 +60,7 @@ export default function ProductDetailsPage({ params }: { params: { id: string } 
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: 'var(--spacing-md)' }}>
-            <div style={{ display: 'flex', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-md)', overflow: 'hidden', width: '120px' }}>
-              <button style={{ padding: 'var(--spacing-sm) var(--spacing-md)', backgroundColor: 'var(--color-bg)', border: 'none', cursor: 'pointer' }}>-</button>
-              <input type="text" value="1" readOnly style={{ width: '100%', textAlign: 'center', border: 'none', outline: 'none' }} />
-              <button style={{ padding: 'var(--spacing-sm) var(--spacing-md)', backgroundColor: 'var(--color-bg)', border: 'none', cursor: 'pointer' }}>+</button>
-            </div>
-            <button className="btn btn-primary" style={{ flex: 1, fontSize: '1.1rem' }}>
-              Add to Cart
-            </button>
-          </div>
+          <AddToCartButton product={{ id: product.id, name: product.name, price: product.price, image: product.image, category: product.category }} />
 
           <div style={{ marginTop: 'var(--spacing-xl)', display: 'flex', gap: 'var(--spacing-lg)', color: 'var(--color-text-muted)', fontSize: '0.875rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-xs)' }}>
