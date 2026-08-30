@@ -14,8 +14,9 @@ const allProducts = [
   { id: "8", name: "Brass Hanging Diya", price: 950.00, image: "https://via.placeholder.com/600?text=Hanging+Diya", category: "Puja Items", description: "Elegant hanging diya with chain.", weight: "500g", dimensions: "45cm length" },
 ];
 
-export default function ProductDetailsPage({ params }: { params: { id: string } }) {
-  const product = allProducts.find(p => p.id === params.id);
+export default async function ProductDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const product = allProducts.find(p => p.id === resolvedParams.id);
 
   if (!product) {
     notFound();
