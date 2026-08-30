@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    const db = getRequestContext().env.DB as any;
+    const db = (getRequestContext().env as any).DB;
     const { results } = await db.prepare('SELECT * FROM Orders ORDER BY created_at DESC').all();
     return NextResponse.json({ success: true, orders: results });
   } catch (e: any) {

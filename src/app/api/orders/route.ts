@@ -5,7 +5,7 @@ import { getRequestContext } from '@cloudflare/next-on-pages';
 export async function POST(request: Request) {
   try {
     const body = await request.json() as any;
-    const db = getRequestContext().env.DB as any;
+    const db = (getRequestContext().env as any).DB;
     
     const orderId = 'ord_' + Date.now();
     

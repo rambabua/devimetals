@@ -25,7 +25,7 @@ export default function ProductCard({ id, name, price, image, category }: Produc
         <p className="product-price">₹{price.toFixed(2)}</p>
         <button 
           className="btn btn-outline product-add-btn"
-          onClick={() => addToCart({ id, name, price, image, category })}
+          onClick={() => addToCart({ id, name, price, image })}
         >
           Add to Cart
         </button>

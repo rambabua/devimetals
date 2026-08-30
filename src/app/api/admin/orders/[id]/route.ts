@@ -7,7 +7,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
   try {
     const resolvedParams = await params;
     const { status } = await request.json() as { status: string };
-    const db = getRequestContext().env.DB as any;
+    const db = (getRequestContext().env as any).DB;
     
     await db.prepare('UPDATE Orders SET status = ? WHERE id = ?')
             .bind(status, resolvedParams.id)

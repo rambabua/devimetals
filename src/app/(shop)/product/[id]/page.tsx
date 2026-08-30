@@ -61,7 +61,7 @@ export default async function ProductDetailsPage({ params }: { params: Promise<{
             </div>
           </div>
 
-          <AddToCartButton product={{ id: product.id, name: product.name, price: product.price, image: product.image, category: product.category }} />
+          <AddToCartButton product={{ id: product.id, name: product.name, price: product.price, image: product.image }} />
 
           <div style={{ marginTop: 'var(--spacing-xl)', display: 'flex', gap: 'var(--spacing-lg)', color: 'var(--color-text-muted)', fontSize: '0.875rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-xs)' }}>
